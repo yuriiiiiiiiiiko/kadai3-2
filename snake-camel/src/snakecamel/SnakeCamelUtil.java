@@ -16,12 +16,12 @@ public class SnakeCamelUtil {
 		int j = 0;
 		for (int i = 0; i < camelcase.length(); i++) {
 			char c = camelcase.charAt(i);
-			if (Character.isUpperCase(c)) {
-				sb.append(camelcase.substring(j, i));
+			if (Character.isUpperCase(c)) {//大文字かどうか判定
+				sb.append(camelcase.substring(j, i));//j文字目からi-1文字目
 				if (sb.length() > 0) {
 					sb.append("_");
 				}
-				sb.append(Character.toLowerCase(c));
+				sb.append(Character.toLowerCase(c));//小文字に変換
 				j = i;
 			}
 		}
