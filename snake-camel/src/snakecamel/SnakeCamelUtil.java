@@ -3,11 +3,15 @@ package snakecamel;
 public class SnakeCamelUtil {
 
 	public static String snakeToCamelcase(String snake_case) {
-		String[] words = snake_case.split("_");
+		String[] words = snake_case.split("_");	
 		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < words.length - 1; i++) {
+		for (int i = 0; i < words.length; i++) {
+			String s=words[i];
+			if (s.length()!=0) {
 			sb.append(capitalize(words[i]));
+			}
 		}
+		//System.out.println(sb);
 		return new String(sb);
 	}
 	 
@@ -22,14 +26,14 @@ public class SnakeCamelUtil {
 					sb.append("_");
 				}
 				sb.append(Character.toLowerCase(c));//小文字に変換
-				j = i;
+				j = i+1;
 			}
 		}
 		sb.append(camelcase.substring(j));
 		return new String(sb);
 	}
 	
-	static String capitalize(String s) {
+	static String capitalize(String s) {//初めの文字を大文字にする
 		char first = s.charAt(0);
 		char upperFirst = Character.toUpperCase(first);
 		String rest = s.substring(1);
